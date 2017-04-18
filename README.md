@@ -27,10 +27,12 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 ```
 cd $HOME/WeatherSearch
-go get -v ./...
+go get github.com/gorilla/securecookie
+go get github.com/mattn/go-sqlite3
+go get golang.org/x/crypto/bcrypt
 ```
 
-4) Change directory into server folder:
+4) Change the directory to the server folder:
 
 ```
 cd src/server
