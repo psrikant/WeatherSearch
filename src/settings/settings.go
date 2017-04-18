@@ -1,0 +1,8 @@
+package settings
+
+const(
+	APIKEY = "8599284a8a5c30331c3535690720f1f4"
+	PEPPER = "c^sJ*C@ll3nge"
+	COOKIEHASHKEY = "78b3e2f483f3a1e6f13b5ca2560217cafd87b0646bce8c6a2885191f48264b21"
+	SESSIONPEPPER = "P*,k@0b+s!m4B"
+)
