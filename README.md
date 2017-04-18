@@ -23,21 +23,28 @@ export GOPATH=$HOME/WeatherSearch
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
 
-3) Change directory to WeatherSearch/src/server:
+3) Install packages:
 
 ```
-cd $HOME/WeatherSearch/src/server
+cd $HOME/WeatherSearch
+go get -v ./...
 ```
 
-4) Run the main.go:
+4) Change directory into server folder:
+
+```
+cd src/server
+```
+
+5) Run the main.go:
 
 ```
 go run main.go
 ```
 
-5) Open the following URL in the browser http://localhost:8081/
+6) Open the following URL in the browser http://localhost:8081/
 
-6) To display all the user's session history within the command line (Challenge 5), run:
+7) To display all the user's session history within the command line (Challenge 5), run:
 
 ```
 go run main.go --display=history
