@@ -1,0 +1,120 @@
+<!-- Author: Pirakalan -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Bootstrap template source: http://getbootstrap.com/css/ -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Results</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<style>
+		.navbar {
+			margin-bottom: 0;
+			border-radius: 0;
+		}
+		
+		footer {
+			background-color: #f2f2f2;
+			padding: 25px;
+		}
+	  </style>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			 	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="/">Main</a></li>
+					<li class="active"><a href="/search">Weather Search</a></li>
+				</ul>
+				{{if eq .UserStatus "loggedin"}}
+				<ul class="nav navbar-nav navbar-right">
+				<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				</ul>
+				{{ end }}
+
+				{{if eq .UserStatus ""}}
+				<ul class="nav navbar-nav navbar-right">
+				<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+				{{ end }}
+			</div>
+		  </div>
+		</nav>
+
+		<br>
+		<div class="container-fluid">
+			<br><br>
+			<table class="table">
+				<tbody>
+					{{$weather := index .Weather 0}}
+					{{if $weather}}
+						<img src="http://openweathermap.org/img/w/{{(index .Weather 0).Icon}}.png" style="width:100px;">
+					{{end}}
+
+					<tr>
+						<td><b>Region</b></td>
+						<td>{{.Name}}, {{.Sys.Country}}</td>
+					<tr>
+
+					<tr>
+						<td><b>Current temperature</b></td>
+						<td>{{.Main.Temp}} &#176;C</td>
+					<tr>
+
+					{{if $weather}}
+						<tr>
+							<td><b>Description</b></td>
+							<td>{{(index .Weather 0).Description}}</td>
+						<tr>
+					{{end}}
+
+					
+					{{if .Wind}}
+						<tr>
+							<td><b>Wind speed</b></td>
+							<td>{{.Wind.Speed}} m/s</td>
+						<tr>
+						<tr>
+							<td><b>Wind direction</b></td>
+							<td>{{.Wind.Deg}}&#176;</td>
+						<tr>
+					{{end}}
+
+					{{if .Clouds}}
+						<tr>
+							<td><b>Cloudiness</b></td>
+							<td>{{.Clouds.All}}%</td>
+						<tr>
+					{{end}}
+
+					{{if .Rain}}
+						<tr>
+							<td><b>Rain volume (last 3 hours)</b></td>
+							<td>{{.Rain.RainVolume3H}}</td>
+						<tr>
+					{{end}}
+
+					{{if .Snow}}
+						<tr>
+							<td><b>Snow volume (last 3 hours)</b></td>
+							<td>{{.Snow.SnowVolume3H}}</td>
+						<tr>
+					{{end}}
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
