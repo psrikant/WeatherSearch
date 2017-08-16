@@ -1,7 +1,6 @@
 # WeatherSearch
 
-## Software Coding Challenge
-
+## Search weather based on cities
 
 ### Installing
 
@@ -46,7 +45,7 @@ go run main.go
 
 6) Open the following URL in the browser http://localhost:8081/
 
-7) To display all the user's session history within the command line (Challenge 5), run:
+7) To display all the user's session history within the command line, run:
 
 ```
 go run main.go --display=history
